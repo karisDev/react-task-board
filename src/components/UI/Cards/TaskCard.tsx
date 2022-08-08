@@ -81,11 +81,15 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, boardId }) => {
           }}
         />
       </div>
-      <div className={cl.text_holder}>
-        <div className={cl.title}>
+      <div className={cl.content_holder}>
+        <div
+          className={[
+            task.body ? cl.title__small_margin : cl.title__big_margin,
+          ].join(" ")}
+        >
           <h2>{task.title}</h2>
         </div>
-        <h3>{task.body}</h3>
+        <h3 className={cl.description}>{task.body}</h3>
       </div>
       <div className={cl.task_controls}>
         <IconButton onClick={() => setEditMode(true)}>

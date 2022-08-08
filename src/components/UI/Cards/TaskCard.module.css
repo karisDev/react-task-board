@@ -1,46 +1,49 @@
 .container {
   box-sizing: border-box;
   display: flex;
+  align-items: flex-start;
   max-height: 4.5rem;
   width: 100%;
-  padding: 0.5rem;
-  overflow: hidden;
   transition: height 1s;
   border-radius: 0.5em;
   background-color: var(--card-bg-color);
 }
 .checkbox_holder {
-  margin-right: 0.5rem;
+  width: 60px;
+  margin: 5px;
 }
-.title {
-  width: 100%;
+.task_controls {
+  margin: 11px 10px;
+  gap: 5px;
   display: flex;
-  justify-content: end;
-  gap: 0.5em;
 }
-.title h2 {
-  margin: 0;
-  padding: 0;
+.title__small_margin {
+  margin-top: 8px;
+}
+.title__big_margin {
+  margin-top: 16px;
+}
+.content_holder {
   width: 100%;
-  justify-self: flex-start;
-  margin-top: 0.6rem;
-  transition: all var(--transition-medium);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
-.text_holder {
-  width: 100%;
-  text-overflow: wordwrap;
-}
-.text_holder h3 {
-  margin-top: 0.5em;
+.description {
+  overflow-wrap: break-word;
   transition: all var(--transition-fast);
   font-size: 14px;
   color: var(--text-accent-color);
 }
 .container:hover {
   max-height:fit-content;
-  box-shadow: none;
 }
-.container:hover .text_holder h3 {
+.container:hover .content_holder {
+  height: auto;
+}
+.container:hover .description {
+  max-height: none;
   font-size: 24px;
   color: var(--text-main-color);
 }
@@ -49,9 +52,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1em;
+  gap: 0.5em;
   width: 100%;
-  padding: 1em 0;
+  padding: 1rem 0;
   border-radius: 0.5em;
   background-color: var(--card-bg-color);
 }
@@ -67,9 +70,7 @@
   min-width: 120px;
   background-color: var(--error-color) !important;
 }
-.task_controls {
-  height: 50px;
-  width: max-content;
-  display: flex;
-  align-items: center;
+.description {
+  max-height: 1em;
+  overflow: hidden;
 }
