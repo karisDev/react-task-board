@@ -1,0 +1,39 @@
+.container {
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  width: 15em;
+  height: 200px;
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.container:hover {
+  background-color: var(--card-hover-color);
+}
+.container h2 {
+  user-select: none;
+  word-wrap: break-word;
+}
+@media screen and (max-width: 2050px) {
+  .container {
+    width: calc(25% - 0.75rem);
+  }
+}
+@media screen and (max-width: 1550px) {
+  .container {
+    width: calc(100% / 3 - 0.75rem);
+  }
+}
+@media screen and (max-width: 1050px) {
+  .container {
+    width: calc(50% - 0.5rem);
+  }
+}
+@media screen and (max-width: 750px) {
+  .container {
+    width: calc(100%);
+  }
+}

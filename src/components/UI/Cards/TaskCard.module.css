@@ -1,0 +1,74 @@
+.container {
+  box-sizing: border-box;
+  display: flex;
+  max-height: 4.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  overflow: hidden;
+  transition: height 1s;
+  border-radius: 0.5em;
+  background-color: var(--card-bg-color);
+}
+.checkbox_holder {
+  margin-right: 0.5rem;
+}
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: 0.5em;
+}
+.title h2 {
+  width: 100%;
+  justify-self: flex-start;
+  padding-top: 0.6rem;
+  margin: 0 !important;
+  transition: all var(--transition-medium);
+  text-overflow: ellipsis;
+}
+.text_holder {
+  width: 100%;
+}
+.text_holder h3 {
+  margin-top: 0.5em;
+  transition: all var(--transition-fast);
+  font-size: 14px;
+  color: var(--text-accent-color);
+}
+.container:hover {
+  max-height:fit-content;
+  box-shadow: none;
+}
+.container:hover .text_holder h3 {
+  font-size: 24px;
+  color: var(--text-main-color);
+}
+.confirm_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  width: 100%;
+  padding: 1em 0;
+  border-radius: 0.5em;
+  background-color: var(--card-bg-color);
+}
+.confirm_box__controls {
+  display: flex;
+  gap: 0.5em;
+}
+.confirm_box h2{
+  margin: 0;
+}
+.confirm_box__controls button:nth-child(2) {
+  min-height: 38px;
+  min-width: 120px;
+  background-color: var(--error-color) !important;
+}
+.task_controls {
+  height: 50px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+}

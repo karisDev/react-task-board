@@ -1,0 +1,7 @@
+.container img {
+  width: 3em;
+}
+.container span {
+  text-align: right;
+  width: 100%;
+}

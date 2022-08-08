@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  overflow: hidden;
+  max-height: 100%;
+}
+.container__main_content {
+  flex: 1;
+  padding: 0 3em;
+  box-sizing: border-box;
+  background-color: var(--bg-main-color);
+}
+/* hide scrollbar but still being able to scroll */
+.dashboard {
+  max-height: 100%;
+  overflow: hidden;
+  margin-top: 4em;
+  display: flex;
+  flex-direction: column;
+}
+.dashboard__items {
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: content-box;
+  padding-right: 17px;
+  overflow-y: scroll;
+  margin-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+@media screen and (max-width: 750px) {
+  .container__main_content {
+    padding: 0 0.5em;
+  }
+  .dashboard {
+    margin-top: 1em;
+  }
+  .dashboard h1 {
+    text-align: end;
+    margin-right: 0.5em;
+  }
+}

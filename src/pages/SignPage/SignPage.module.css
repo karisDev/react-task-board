@@ -1,0 +1,83 @@
+.container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000af;
+  animation: fadeIn var(--transition-medium);
+  opacity: 1;
+}
+.transitionZone {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  background-color: var(--bg-main-color);
+  border-radius: 6px;
+  max-width: 60em;
+  width: 90%;
+  max-height: 100%;
+  aspect-ratio: 4 / 3;
+  animation: slideIn var(--transition-medium);
+}
+.settingsDropdown {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+.container a {
+  cursor: auto;
+  user-select: none;
+}
+.container a:hover {
+  text-decoration: none;
+}
+.container.success {
+  animation: fadeOut var(--transition-slow);
+  background-color: #00000000;
+}
+.transitionZone.success {
+  animation: slideAway var(--transition-slow);
+  transform: translateY(100vh);
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    background-color: #000000af;
+  }
+  100% {
+    background-color: #00000000;
+  }
+}
+@keyframes slideIn {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slideAway {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+/* @media screen and (max-width: 550px) { */
+@media screen and (max-width: 550px) {
+  .transitionZone {
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 0;
+  }
+}
