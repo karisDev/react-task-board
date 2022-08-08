@@ -46,6 +46,7 @@
   max-height: none;
   font-size: 24px;
   color: var(--text-main-color);
+  margin-bottom: 8px;
 }
 .confirm_box {
   display: flex;
