@@ -84,6 +84,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, boardId }) => {
       <div className={cl.content_holder}>
         <div
           className={[
+            cl.title,
             task.body ? cl.title__small_margin : cl.title__big_margin,
           ].join(" ")}
         >
