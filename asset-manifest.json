@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-task-board/static/css/main.46f61ce0.css",
+    "main.js": "/react-task-board/static/js/main.64fcf1a1.js",
+    "static/media/Golos-Text_Medium.woff2": "/react-task-board/static/media/Golos-Text_Medium.e61f214e9f569485553f.woff2",
+    "static/media/Golos-Text_Regular.woff2": "/react-task-board/static/media/Golos-Text_Regular.254328986b51b9525aff.woff2",
+    "static/media/en.png": "/react-task-board/static/media/en.7be3d5a2c15bcfba1b7c.png",
+    "index.html": "/react-task-board/index.html",
+    "main.46f61ce0.css.map": "/react-task-board/static/css/main.46f61ce0.css.map",
+    "main.64fcf1a1.js.map": "/react-task-board/static/js/main.64fcf1a1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46f61ce0.css",
+    "static/js/main.64fcf1a1.js"
+  ]
+}
