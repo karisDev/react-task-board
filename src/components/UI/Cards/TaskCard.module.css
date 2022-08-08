@@ -19,15 +19,16 @@
   gap: 0.5em;
 }
 .title h2 {
+  margin: 0;
+  padding: 0;
   width: 100%;
   justify-self: flex-start;
-  padding-top: 0.6rem;
-  margin: 0 !important;
+  margin-top: 0.6rem;
   transition: all var(--transition-medium);
-  text-overflow: ellipsis;
 }
 .text_holder {
   width: 100%;
+  text-overflow: wordwrap;
 }
 .text_holder h3 {
   margin-top: 0.5em;

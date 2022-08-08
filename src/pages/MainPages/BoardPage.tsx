@@ -25,11 +25,11 @@ export const BoardPage = ({ board }: BoardPageProps) => {
     <div className={cl.container}>
       <h1 className={cl.container_title}>{board.title}</h1>
       <div className={cl.tasks}>
-        <h2>Create</h2>
+        <h2 className={cl.tasks__header}>Create</h2>
         <div className={cl.tasks_section}>
           <NewTaskCard createTaskCallback={createTask} />
         </div>
-        <h2>Current</h2>
+        <h2 className={cl.tasks__header}>Current</h2>
         <div className={cl.tasks_section}>
           {board.tasks?.map(
             (task, index) =>
@@ -38,7 +38,7 @@ export const BoardPage = ({ board }: BoardPageProps) => {
               )
           )}
         </div>
-        <h2>Finnished</h2>
+        <h2 className={cl.tasks__header}>Finnished</h2>
         <div className={cl.tasks_section}>
           {board.tasks?.map(
             (task, index) =>
