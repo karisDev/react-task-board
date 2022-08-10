@@ -63,7 +63,8 @@
   background-color: var(--error-color) !important;
 }
 .description {
-  max-height: 1em;
+  white-space: pre-wrap;
+  max-height: 1.2em;
   overflow-wrap: break-word;
   overflow: hidden;
   transition: all var(--transition-fast);
@@ -71,12 +72,12 @@
   color: var(--text-accent-color);
 }
 .title {
-  max-height: 2em;
+  max-height: 1.8em;
   overflow-wrap: break-word;
   overflow: hidden;
 }
 .title__small_margin {
-  margin-top: 6px;
+  margin-top: 7px;
 }
 .title__big_margin {
   margin-top: 16px;
