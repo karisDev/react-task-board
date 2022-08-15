@@ -1,5 +1,12 @@
 import { Button, CircularProgress } from "@mui/material";
-import { ChangeEvent, ChangeEventHandler, FormEvent, useState } from "react";
+import {
+  ChangeEvent,
+  FormEvent,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { createNewTask } from "../../../firebase/Firestore";
 import InputBase from "../Inputs/InputBase";
 import cl from "./NewTaskCard.module.css";
@@ -19,6 +26,7 @@ export const EditTaskCard = ({
   const [body, setBody] = useState(currentBody ? currentBody : "");
   const [titleError, setTitleError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const textarea = useRef<HTMLTextAreaElement | null>(null);
 
   const isEmptyOrWhiteSpace = (str: string) =>
     str === null || str.match(/^ *$/) !== null;
@@ -39,6 +47,18 @@ export const EditTaskCard = ({
     e.currentTarget.style.height = e.currentTarget.scrollHeight + "px";
   };
 
+  useEffect(() => {
+    const initHeight = (
+      textarea: MutableRefObject<HTMLTextAreaElement | null>
+    ) => {
+      if (textarea.current) {
+        textarea.current.style.height = "auto";
+        textarea.current.style.height = textarea.current.scrollHeight + "px";
+      }
+    };
+
+    initHeight(textarea);
+  }, [textarea]);
   return (
     <form onSubmit={createTask} className={cl.container}>
       <input
@@ -52,6 +72,7 @@ export const EditTaskCard = ({
         }}
       />
       <textarea
+        ref={textarea}
         className={cl.description}
         disabled={loading}
         onChange={(e) => {

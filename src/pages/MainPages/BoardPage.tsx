@@ -23,7 +23,9 @@ export const BoardPage = ({ board }: BoardPageProps) => {
     <Navigate to={"/dashboard"} />
   ) : (
     <div className={cl.container}>
-      <h1 className={cl.container_title}>{board.title}</h1>
+      <div className={cl.container_title}>
+        <h1>{board.title}</h1>
+      </div>
       <div className={cl.tasks}>
         <h2 className={cl.tasks__header}>Create</h2>
         <div className={cl.tasks_section}>
