@@ -13,6 +13,7 @@ import { IBoard } from "../../../interfaces/appInterfaces";
 import cl from "./Navbar.module.css";
 import ListIcon from "@mui/icons-material/List";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const BoardsDropdown = ({
   boards,
@@ -21,6 +22,7 @@ const BoardsDropdown = ({
   boards?: IBoard[];
   onBoardClick: () => void;
 }) => {
+  const { t } = useTranslation();
   const [boardsExpanded, setBoardsExpanded] = useState(true);
   const [boardName, setBoardName] = useState("");
   const [createBoardExpanded, setCreateBoardExpanded] = useState(false);
@@ -53,7 +55,7 @@ const BoardsDropdown = ({
         onClick={() => setBoardsExpanded(!boardsExpanded)}
         className={cl.nav__boards_expand}
       >
-        <h3>Your boards</h3>
+        <h3>{t("nav_your_boards")}</h3>
         {boardsExpanded ? <ArrowDropUp /> : <ArrowDropDown />}
       </button>
       {boardsExpanded && (
@@ -67,7 +69,7 @@ const BoardsDropdown = ({
                 id="boardNameInput"
                 onChange={(e) => setBoardName(e.target.value)}
                 value={boardName}
-                placeholder="Write name here"
+                placeholder={t("nav_write_board_name")}
               />
               <IconButton type="submit">
                 {boardName.length == 0 ? <CloseRounded /> : <CheckRounded />}
@@ -79,7 +81,7 @@ const BoardsDropdown = ({
               startIcon={<AddRounded />}
               className={cl.nav__btn_standart}
             >
-              Create new board
+              {t("nav_create_board")}
             </Button>
           )}
           {boards &&

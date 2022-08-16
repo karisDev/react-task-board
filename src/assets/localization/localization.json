@@ -35,7 +35,23 @@
         "signin_error_invalid_email": "This email is invalid",
         "signin_error_wrong_password": "This password is wrong",
         "signin_error_no_password": "You need to write a password",
-        "signin_error_empty_fields": "Please, fill in all fields"
+        "signin_error_empty_fields": "Please, fill in all fields",
+        "board_create": "Create",
+        "board_current": "Current",
+        "board_finished": "Finished",
+        "dashboard": "Dashboard",
+        "task_title": "Title",
+        "task_description": "Description",
+        "task_clear": "Clear",
+        "task_create": "Create",
+        "task_delete_ask": "Are you sure?",
+        "task_delete_confirm": "Yes, delete",
+        "task_delete_cancel": "No",
+        "task_update": "Update",
+        "task_cancel": "Cancel",
+        "nav_write_board_name": "Write board name",
+        "nav_your_boards": "Your boards",
+        "nav_create_board": "Create new board"
       }
     },
     "ru": {
@@ -73,7 +89,23 @@
         "signin_error_invalid_email": "Неправильная почта",
         "signin_error_wrong_password": "Этот пароль неверный",
         "signin_error_no_password": "Забыли ввести пароль",
-        "signin_error_empty_fields": "Нужно заполнить все поля"
+        "signin_error_empty_fields": "Нужно заполнить все поля",
+        "board_create": "Создать",
+        "board_current": "Текущие",
+        "board_finished": "Завершенные",
+        "dashboard": "Главная",
+        "task_title": "Заголовок",
+        "task_description": "Описание",
+        "task_clear": "Очистить",
+        "task_create": "Создать",
+        "task_delete_ask": "Вы уверены?",
+        "task_delete_confirm": "Да, удалить",
+        "task_delete_cancel": "Нет",
+        "task_update": "Изменить",
+        "task_cancel": "Отмена",
+        "nav_write_board_name": "Напишите название",
+        "nav_your_boards": "Ваши доски",
+        "nav_create_board": "Создать новую доску"
       }
     }
   },

@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import { deleteTask, updateTask } from "../../../firebase/Firestore";
 import { AuthUserContext } from "../../../firebase/AuthUserContext";
 import { EditTaskCard } from "./EditTaskCard";
+import { useTranslation } from "react-i18next";
 
 interface TaskCardProps {
   task: ITask;
@@ -14,6 +15,7 @@ interface TaskCardProps {
 }
 
 export const TaskCard: React.FC<TaskCardProps> = ({ task, boardId }) => {
+  const { t } = useTranslation();
   const [confirmDeleteMode, setConfirmDeleteMode] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [deleting, setDeleting] = useState(false);
@@ -54,17 +56,17 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, boardId }) => {
     />
   ) : confirmDeleteMode ? (
     <div className={cl.confirm_box}>
-      <h2>Are you sure?</h2>
+      <h2>{t("task_delete_ask")}</h2>
       <div className={cl.confirm_box__controls}>
         <Button
           disabled={deleting}
           onClick={() => setConfirmDeleteMode(false)}
           variant="outlined"
         >
-          No
+          {t("task_delete_cancel")}
         </Button>
         <Button disabled={deleting} onClick={doDeleteTask} variant="contained">
-          {deleting ? <CircularProgress size={26} /> : "Yes, delete"}
+          {deleting ? <CircularProgress size={26} /> : t("task_delete_confirm")}
         </Button>
       </div>
     </div>

@@ -7,6 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { useTranslation } from "react-i18next";
 import { createNewTask } from "../../../firebase/Firestore";
 import InputBase from "../Inputs/InputBase";
 import cl from "./NewTaskCard.module.css";
@@ -22,6 +23,7 @@ export const EditTaskCard = ({
   currentTitle: string;
   currentBody?: string;
 }) => {
+  const { t } = useTranslation();
   const [title, setTitle] = useState(currentTitle);
   const [body, setBody] = useState(currentBody ? currentBody : "");
   const [titleError, setTitleError] = useState(false);
@@ -63,7 +65,7 @@ export const EditTaskCard = ({
     <form onSubmit={createTask} className={cl.container}>
       <input
         className={[cl.title, titleError ? cl.error : null].join(" ")}
-        placeholder="Title"
+        placeholder={t("task_title")}
         value={title}
         disabled={loading}
         onFocus={() => setTitleError(false)}
@@ -79,12 +81,12 @@ export const EditTaskCard = ({
           setBody(e.target.value);
           updateHeight(e);
         }}
-        placeholder="Description"
+        placeholder={t("task_description")}
         value={body}
       />
       <div className={cl.controls}>
         <Button onClick={cancelCallback} size="large" variant="outlined">
-          Cancel
+          {t("task_cancel")}
         </Button>
         <Button
           disabled={loading}
@@ -92,7 +94,7 @@ export const EditTaskCard = ({
           size="large"
           variant="contained"
         >
-          {loading ? <CircularProgress size={25} /> : "Update"}
+          {loading ? <CircularProgress size={25} /> : t("task_update")}
         </Button>
       </div>
     </form>

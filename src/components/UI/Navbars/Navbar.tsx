@@ -57,7 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({ boards, name, page }) => {
                   navigate("/dashboard");
                 }}
               >
-                Dashboard
+                {t("dashboard")}
               </Button>
               <Button
                 startIcon={<SettingsRounded />}
@@ -70,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({ boards, name, page }) => {
                   navigate("/settings");
                 }}
               >
-                Settings
+                {t("settings")}
               </Button>
             </div>
             <BoardsDropdown onBoardClick={hideNavOnMobile} boards={boards} />

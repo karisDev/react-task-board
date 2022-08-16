@@ -2,7 +2,7 @@ import cl from "./SignPage.module.css";
 import LoadingPage from "../../components/UI/Animated/LoadingPage";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
-import LanguageChange from "../../components/UI/Buttons/LanguageChange";
+import LanguageChangeButton from "../../components/UI/Buttons/LanguageChangeButton";
 import Carousel from "../../components/UI/Carousel/Carousel";
 import SettingsDropdown from "../../components/UI/Dropdowns/SettingsDropdown";
 import ThemeChangeButton from "../../components/UI/Buttons/ThemeChangeButton";
@@ -33,7 +33,7 @@ export const SignPage: React.FC<Props> = ({ signUp }) => {
           className={[cl.transitionZone, success ? cl.success : null].join(" ")}
         >
           <SettingsDropdown className={cl.settingsDropdown}>
-            <LanguageChange />
+            <LanguageChangeButton />
             <ThemeChangeButton />
           </SettingsDropdown>
           <Carousel currentPage={signUp ? 1 : 0} vertical>

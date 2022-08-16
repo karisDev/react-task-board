@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Navigate } from "react-router-dom";
 import { NewTaskCard } from "../../components/UI/Cards/NewTaskCard";
 import { TaskCard } from "../../components/UI/Cards/TaskCard";
@@ -12,6 +13,7 @@ interface BoardPageProps {
 }
 
 export const BoardPage = ({ board }: BoardPageProps) => {
+  const { t } = useTranslation();
   const authContext = useContext(AuthUserContext);
 
   const createTask = async (title: string, body: string) => {
@@ -27,11 +29,11 @@ export const BoardPage = ({ board }: BoardPageProps) => {
         <h1>{board.title}</h1>
       </div>
       <div className={cl.tasks}>
-        <h2 className={cl.tasks__header}>Create</h2>
+        <h2 className={cl.tasks__header}>{t("board_create")}</h2>
         <div className={cl.tasks_section}>
           <NewTaskCard createTaskCallback={createTask} />
         </div>
-        <h2 className={cl.tasks__header}>Current</h2>
+        <h2 className={cl.tasks__header}>{t("board_current")}</h2>
         <div className={cl.tasks_section}>
           {board.tasks?.map(
             (task, index) =>
@@ -40,7 +42,7 @@ export const BoardPage = ({ board }: BoardPageProps) => {
               )
           )}
         </div>
-        <h2 className={cl.tasks__header}>Finnished</h2>
+        <h2 className={cl.tasks__header}>{t("board_finished")}</h2>
         <div className={cl.tasks_section}>
           {board.tasks?.map(
             (task, index) =>

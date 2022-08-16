@@ -1,5 +1,6 @@
 import { Button, CircularProgress } from "@mui/material";
 import { ChangeEvent, ChangeEventHandler, FormEvent, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { createNewTask } from "../../../firebase/Firestore";
 import InputBase from "../Inputs/InputBase";
 import cl from "./NewTaskCard.module.css";
@@ -9,6 +10,7 @@ export const NewTaskCard = ({
 }: {
   createTaskCallback: (title: string, body: string) => Promise<void>;
 }) => {
+  const { t } = useTranslation();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [titleError, setTitleError] = useState(false);
@@ -43,7 +45,7 @@ export const NewTaskCard = ({
     <form onSubmit={createTask} className={cl.container}>
       <input
         className={[cl.title, titleError ? cl.error : null].join(" ")}
-        placeholder="Title"
+        placeholder={t("task_title")}
         value={title}
         disabled={loading}
         onFocus={() => setTitleError(false)}
@@ -58,7 +60,7 @@ export const NewTaskCard = ({
           setBody(e.target.value);
           updateHeight(e);
         }}
-        placeholder="Description"
+        placeholder={t("task_description")}
         value={body}
       />
       <div className={cl.controls}>
@@ -68,7 +70,7 @@ export const NewTaskCard = ({
           size="large"
           variant="outlined"
         >
-          Clear
+          {t("task_clear")}
         </Button>
         <Button
           disabled={loading}
@@ -76,7 +78,7 @@ export const NewTaskCard = ({
           size="large"
           variant="contained"
         >
-          {loading ? <CircularProgress size={25} /> : "Create"}
+          {loading ? <CircularProgress size={25} /> : t("task_create")}
         </Button>
       </div>
     </form>

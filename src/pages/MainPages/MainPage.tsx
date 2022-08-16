@@ -1,16 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import LoadingPage from "../../components/UI/Animated/LoadingPage";
 import Navbar from "../../components/UI/Navbars/Navbar";
-import { doSignOut } from "../../firebase/Auth";
-import { getUserSettings } from "../../firebase/Firestore";
 import cl from "./MainPage.module.css";
-import { collection } from "firebase/firestore";
 import { AuthUserContext } from "../../firebase/AuthUserContext";
 import { IBoard } from "../../interfaces/appInterfaces";
 import DashboardPage from "./DashboardPage";
 import { BoardPage } from "./BoardPage";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import SettingsPage from "./SettingsPage";
 
 export enum PrivatePages {
   "dashboard",
@@ -36,7 +32,7 @@ export const MainPage = ({ page, boardId }: MainPageProps) => {
       case PrivatePages.board:
         return <BoardPage board={getBoardByUrl()} />;
       case PrivatePages.settings:
-        return <h1>no settings for you</h1>;
+        return <SettingsPage />;
     }
   };
 

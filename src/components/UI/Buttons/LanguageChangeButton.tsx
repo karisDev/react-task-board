@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
-import cl from "./LanguageChange.module.css";
+import cl from "./LanguageChangeButton.module.css";
 import en from "../../../assets/images/flags/en.png";
 import ru from "../../../assets/images/flags/ru.png";
 import { useTranslation } from "react-i18next";
 import ButtonBase from "./ButtonBase";
 
-interface LanguageChangeProps {}
-
 // create dropdown for language change
-const LanguageChange: React.FC<
-  LanguageChangeProps & React.HTMLAttributes<HTMLUListElement>
+const LanguageChangeButton: React.FC<
+  React.HTMLAttributes<HTMLUListElement>
 > = () => {
   const [currentLanguage, setCurrentLanguage] = useState("en");
   const t = useTranslation();
@@ -46,4 +44,4 @@ const LanguageChange: React.FC<
   );
 };
 
-export default LanguageChange;
+export default LanguageChangeButton;
