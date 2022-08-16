@@ -14,6 +14,7 @@ import cl from "./Navbar.module.css";
 import ListIcon from "@mui/icons-material/List";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import InputBase from "../Inputs/InputBase";
 
 const BoardsDropdown = ({
   boards,
@@ -65,7 +66,7 @@ const BoardsDropdown = ({
               onSubmit={createNewBoardHandler}
               className={cl.boards__new_board}
             >
-              <input
+              <InputBase
                 id="boardNameInput"
                 onChange={(e) => setBoardName(e.target.value)}
                 value={boardName}

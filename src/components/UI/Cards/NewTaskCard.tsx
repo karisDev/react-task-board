@@ -3,6 +3,7 @@ import { ChangeEvent, ChangeEventHandler, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { createNewTask } from "../../../firebase/Firestore";
 import InputBase from "../Inputs/InputBase";
+import TextAreaBase from "../Inputs/TextAreaBase";
 import cl from "./NewTaskCard.module.css";
 
 export const NewTaskCard = ({
@@ -36,15 +37,10 @@ export const NewTaskCard = ({
     setLoading(false);
   };
 
-  const updateHeight = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    e.currentTarget.style.height = "auto";
-    e.currentTarget.style.height = e.currentTarget.scrollHeight + "px";
-  };
-
   return (
     <form onSubmit={createTask} className={cl.container}>
-      <input
-        className={[cl.title, titleError ? cl.error : null].join(" ")}
+      <InputBase
+        className={titleError ? cl.error : ""}
         placeholder={t("task_title")}
         value={title}
         disabled={loading}
@@ -53,12 +49,10 @@ export const NewTaskCard = ({
           setTitle(e.currentTarget.value);
         }}
       />
-      <textarea
-        className={cl.description}
+      <TextAreaBase
         disabled={loading}
         onChange={(e) => {
           setBody(e.target.value);
-          updateHeight(e);
         }}
         placeholder={t("task_description")}
         value={body}

@@ -1,0 +1,30 @@
+.input_container,
+.textarea_container {
+  transition: all var(--transition-fast);
+  margin: 0.5rem;
+  font-family: Golos-regular;
+  font-weight: 100;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  padding: 0.5em;
+  outline: none;
+  color: var(--text-main-color);
+}
+.input_container::placeholder,
+.textarea_container::placeholder {
+  color: var(--text-placeholder-color);
+}
+.input_container:focus,
+.textarea_container:focus {
+  background-color: var(--bg-main-color);
+}
+.textarea_container {
+  overflow: auto;
+  min-height: 3em;
+  padding-bottom: 0;
+  max-height: 8em;
+  margin-top: 0;
+  resize: none;
+}

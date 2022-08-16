@@ -8,6 +8,8 @@
   padding: 0 3em;
   box-sizing: border-box;
   background-color: var(--bg-main-color);
+  max-width: 1500px;
+  margin: 0 auto;
 }
 /* hide scrollbar but still being able to scroll */
 .dashboard {

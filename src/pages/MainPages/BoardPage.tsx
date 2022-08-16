@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Navigate } from "react-router-dom";
+import BoardTitle from "../../components/UI/Cards/BoardTitle";
 import { NewTaskCard } from "../../components/UI/Cards/NewTaskCard";
 import { TaskCard } from "../../components/UI/Cards/TaskCard";
 import { AuthUserContext } from "../../firebase/AuthUserContext";
@@ -26,7 +27,7 @@ export const BoardPage = ({ board }: BoardPageProps) => {
   ) : (
     <div className={cl.container}>
       <div className={cl.container_title}>
-        <h1>{board.title}</h1>
+        <BoardTitle title={board.title} />
       </div>
       <div className={cl.tasks}>
         <h2 className={cl.tasks__header}>{t("board_create")}</h2>

@@ -8,7 +8,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 const InputBase: React.FC<InputProps> = ({ className, ...rest }) => {
   return (
     <input
-      className={[cl.container, className ? className : ""].join(" ")}
+      className={[cl.input_container, className ? className : ""].join(" ")}
       {...rest}
     />
   );
