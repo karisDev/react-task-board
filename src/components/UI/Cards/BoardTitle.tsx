@@ -9,13 +9,19 @@ import { Check, Close } from "@mui/icons-material";
 
 interface BoardTitleProps {
   title: string;
+  onBoardDelete: () => void;
+  onBoardRename: (newTitle: string) => void;
 }
 
-const BoardTitle: React.FC<BoardTitleProps> = ({ title: currentTitle }) => {
+const BoardTitle: React.FC<BoardTitleProps> = ({
+  title: currentTitle,
+  onBoardDelete,
+  onBoardRename,
+}) => {
   const { t } = useTranslation();
   const [edit, setEdit] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
-  const [deleting, setDeleting] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState(currentTitle);
 
   const cancelEdit = () => {
@@ -26,7 +32,7 @@ const BoardTitle: React.FC<BoardTitleProps> = ({ title: currentTitle }) => {
   useEffect(() => {
     setEdit(false);
     setTitle(currentTitle);
-    setDeleting(false);
+    setLoading(false);
     setConfirmDelete(false);
   }, [currentTitle]);
 
@@ -34,11 +40,16 @@ const BoardTitle: React.FC<BoardTitleProps> = ({ title: currentTitle }) => {
     <div className={cl.edit}>
       <InputBase value={title} onChange={(e) => setTitle(e.target.value)} />
       <div className={cl.edit_controls}>
-        <IconButton onClick={cancelEdit}>
+        <IconButton onClick={cancelEdit} disabled={loading}>
           <Close />
         </IconButton>
-        <IconButton>
-          <Check />
+        <IconButton
+          onClick={() => {
+            setLoading(true);
+            onBoardRename(title);
+          }}
+        >
+          {loading ? <CircularProgress size={26} /> : <Check />}
         </IconButton>
       </div>
     </div>
@@ -49,14 +60,22 @@ const BoardTitle: React.FC<BoardTitleProps> = ({ title: currentTitle }) => {
       </h2>
       <div className={cl.delete_controls}>
         <Button
-          disabled={deleting}
+          disabled={loading}
           onClick={() => setConfirmDelete(false)}
           variant="outlined"
         >
           {t("task_delete_cancel")}
         </Button>
-        <Button className={cl.error} disabled={deleting} variant="contained">
-          {deleting ? <CircularProgress size={26} /> : t("task_delete_confirm")}
+        <Button
+          className={cl.error}
+          disabled={loading}
+          variant="contained"
+          onClick={() => {
+            setLoading(true);
+            onBoardDelete();
+          }}
+        >
+          {loading ? <CircularProgress size={26} /> : t("task_delete_confirm")}
         </Button>
       </div>
     </div>

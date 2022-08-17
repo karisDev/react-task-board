@@ -5,8 +5,6 @@ import {
   IDBUserSettingsStructure,
   IDBUserBoardsStructure,
 } from "../interfaces/dbInterfaces";
-import { useContext } from "react";
-import { AuthUserContext } from "./AuthUserContext";
 
 export const createNewBoard = async (boardName: string): Promise<IBoard> => {
   const board: IBoard = {
@@ -118,6 +116,36 @@ export const deleteTask = async (taskId: number, boardId: number) => {
       throw "Board with this ID doesn't exist";
     }
     boards.boards[boardIndex].tasks! = boards.boards[boardIndex].tasks!.filter(task => task.id != taskId);
+    await setDoc(boardsRef, boards);
+  }
+}
+
+export const updateBoardTitle = async (boardId: number, newTitle: string) => {
+  if (auth.currentUser) {
+    const boardsRef = doc(db, "users/" + auth.currentUser.uid + '/data/boards');
+    const boards = (await getDoc(boardsRef)).data() as IDBUserBoardsStructure;
+    const boardIndex = boards.boards?.findIndex((board) => board.id == boardId);
+    
+    if (boardIndex == undefined || !boards.boards) {
+      throw "Board with this ID doesn't exist";
+    }
+    
+    boards.boards[boardIndex].title = newTitle;
+    await setDoc(boardsRef, boards);
+  }
+}
+
+export const deleteBoard = async (boardId: number) => {
+  if (auth.currentUser) {
+    const boardsRef = doc(db, "users/" + auth.currentUser.uid + '/data/boards');
+    const boards = (await getDoc(boardsRef)).data() as IDBUserBoardsStructure;
+    const boardIndex = boards.boards?.findIndex((board) => board.id == boardId);
+    
+    if (boardIndex == undefined || !boards.boards) {
+      throw "Board with this ID doesn't exist";
+    }
+    
+    boards.boards.splice(boardIndex, 1);
     await setDoc(boardsRef, boards);
   }
 }

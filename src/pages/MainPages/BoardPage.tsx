@@ -5,7 +5,11 @@ import BoardTitle from "../../components/UI/Cards/BoardTitle";
 import { NewTaskCard } from "../../components/UI/Cards/NewTaskCard";
 import { TaskCard } from "../../components/UI/Cards/TaskCard";
 import { AuthUserContext } from "../../firebase/AuthUserContext";
-import { createNewTask } from "../../firebase/Firestore";
+import {
+  createNewTask,
+  deleteBoard,
+  updateBoardTitle,
+} from "../../firebase/Firestore";
 import { IBoard } from "../../interfaces/appInterfaces";
 import cl from "./BoardPage.module.css";
 
@@ -22,12 +26,26 @@ export const BoardPage = ({ board }: BoardPageProps) => {
     await authContext?.updateDb();
   };
 
+  const onBoardDelete = async () => {
+    await deleteBoard(board!.id);
+    await authContext?.updateDb();
+  };
+
+  const onBoardRename = async (newTitle: string) => {
+    await updateBoardTitle(board!.id, newTitle);
+    await authContext?.updateDb();
+  };
+
   return board == undefined ? (
     <Navigate to={"/dashboard"} />
   ) : (
     <div className={cl.container}>
       <div className={cl.container_title}>
-        <BoardTitle title={board.title} />
+        <BoardTitle
+          title={board.title}
+          onBoardDelete={onBoardDelete}
+          onBoardRename={onBoardRename}
+        />
       </div>
       <div className={cl.tasks}>
         <h2 className={cl.tasks__header}>{t("board_create")}</h2>
