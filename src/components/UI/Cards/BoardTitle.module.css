@@ -53,5 +53,18 @@
 }
 .error {
   min-width: 100px;
-  background-color: var(--error-color) !important
+  background-color: var(--error-color) !important;
+}
+
+@media screen and (max-width: 750px) {
+  .container {
+    flex-direction: row-reverse;
+    gap: 0.5em;
+  }
+  .container h1 {
+    flex: none;
+  }
+  .edit, .delete {
+    margin-top: 4em;
+  }
 }
