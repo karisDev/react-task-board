@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-task-board/static/css/main.66f3a108.css",
-    "main.js": "/react-task-board/static/js/main.e44302a5.js",
+    "main.css": "/react-task-board/static/css/main.448f208b.css",
+    "main.js": "/react-task-board/static/js/main.245853cf.js",
     "static/media/Golos-Text_Medium.woff2": "/react-task-board/static/media/Golos-Text_Medium.e61f214e9f569485553f.woff2",
     "static/media/Golos-Text_Regular.woff2": "/react-task-board/static/media/Golos-Text_Regular.254328986b51b9525aff.woff2",
     "static/media/en.png": "/react-task-board/static/media/en.7be3d5a2c15bcfba1b7c.png",
     "index.html": "/react-task-board/index.html",
-    "main.66f3a108.css.map": "/react-task-board/static/css/main.66f3a108.css.map",
-    "main.e44302a5.js.map": "/react-task-board/static/js/main.e44302a5.js.map"
+    "main.448f208b.css.map": "/react-task-board/static/css/main.448f208b.css.map",
+    "main.245853cf.js.map": "/react-task-board/static/js/main.245853cf.js.map"
   },
   "entrypoints": [
-    "static/css/main.66f3a108.css",
-    "static/js/main.e44302a5.js"
+    "static/css/main.448f208b.css",
+    "static/js/main.245853cf.js"
   ]
 }
