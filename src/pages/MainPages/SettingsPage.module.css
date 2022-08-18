@@ -1,5 +1,19 @@
-.container {
+.settings {
+  max-height: 100%;
+  overflow: hidden;
+  margin-top: 4em;
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
+}
+.settings h1 {
+  margin-bottom: 2em;
+}
+
+@media screen and (max-width: 750px) {
+  .settings {
+    margin-top: 1em;
+  }
+  .settings h1 {
+    text-align: end;
+  }
 }
